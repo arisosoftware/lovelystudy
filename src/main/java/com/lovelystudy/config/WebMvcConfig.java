@@ -11,11 +11,7 @@ import com.lovelystudy.config.properties.SiteConfig;
 import com.lovelystudy.web.interceptor.CommonInterceptor;
 import com.lovelystudy.web.interceptor.PjaxInterceptor;
 import com.lovelystudy.web.interceptor.UserInterceptor;
-
-/**
- * @author vim
- *
- */
+ 
 @Configuration
 public class WebMvcConfig extends WebMvcConfigurationSupport {
 

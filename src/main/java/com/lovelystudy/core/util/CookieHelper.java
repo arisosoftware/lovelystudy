@@ -11,10 +11,7 @@ import javax.servlet.http.HttpServletResponse;
  * <p>
  * 注意：在cookie的名或值中不能使用分号（;）、逗号（,）、等号（=）以及空格
  * </p>
- *
- * @author hubin
- * @since 2014-5-8
- */
+  */
 public class CookieHelper {
 
 	/* 浏览器关闭时自动删除 */

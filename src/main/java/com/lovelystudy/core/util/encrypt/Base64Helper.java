@@ -2,10 +2,7 @@ package com.lovelystudy.core.util.encrypt;
 
 import java.io.UnsupportedEncodingException;
 
-/**
- * @author Mr.Zheng
- * @date 2014年9月19日14:01:23
- */
+ 
 public class Base64Helper {
 	private static byte[] base64DecodeChars = new byte[] { -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
 			-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,

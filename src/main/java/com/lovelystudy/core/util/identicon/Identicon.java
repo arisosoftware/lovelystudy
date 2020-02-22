@@ -25,9 +25,7 @@ import com.lovelystudy.core.util.encrypt.MD5Helper;
 import com.lovelystudy.core.util.identicon.generator.IBaseGenartor;
 import com.lovelystudy.core.util.identicon.generator.impl.MyGenerator;
 
-/**
- * Author: Bryant Hang Date: 15/1/10 Time: 下午2:42
- */
+ 
 @Component
 public class Identicon {
 

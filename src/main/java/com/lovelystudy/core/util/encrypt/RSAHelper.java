@@ -19,10 +19,7 @@ import java.security.spec.X509EncodedKeySpec;
 
 import javax.crypto.Cipher;
 
-/**
- * @author Mr.Zheng
- * @date 2014年8月22日 下午1:44:23
- */
+ 
 public class RSAHelper {
 	private static final String RSA = "RSA";
 

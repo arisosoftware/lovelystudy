@@ -5,10 +5,7 @@ import java.io.UnsupportedEncodingException;
 import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;
 
-/**
- * @author Mr.Zheng
- * @date 2014年8月24日 下午5:16:22
- */
+ 
 public class AESHelper {
 	/**
 	 * 算法/模式/填充 *
