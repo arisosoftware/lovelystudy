@@ -20,9 +20,9 @@ spring:
       template_exception_handler: rethrow
       number_format: 0.##
   datasource:
-    url: jdbc:mysql://localhost:3306/pybbsDB?autoReconnect=true&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&useSSL=false
+    url: jdbc:mysql://localhost:3306/LovelyStudy?autoReconnect=true&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC&useSSL=false
     username: sqluser
-    password: 111111
+    password: password
 
 #  redis: # 如果redis都是默认配置，下面这些都可以不用配置
 #    host: localhost
