@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: lovelystudy
+Implementation-Version: 0.1
+Built-By: vim
+Implementation-Vendor-Id: com.lovelystudy
+Build-Jdk: 1.8.0_162
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+ ot-starter-parent/lovelystudy
+Created-By: Maven Integration for Eclipse
+
