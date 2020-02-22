@@ -45,15 +45,7 @@ public class MD5Helper {
 		return stringbuffer.toString();
 	}
 
-	/**
-	 * 功能：得到文件的md5值。
-	 *
-https://clipwatching.com/6puazt94on68/VENU-496.mp4.html
-https://clipwatching.com/ya6zxmtusf37/WANZ-296.mp4.html
-下载地址：http://katfile.com/udsjjxafwyrj/1pondo-081716_363.zip.html  一本道 081716_363 無套肉棒真爽啊 水谷心音
-下載地址：https://katfile.com/fpd3msoh1sb8/STARS-166.mp4.html cool
-     下载地址：https://rapidgator.net/file/5e286975a4419b762ca457c144e6b76d/STAR-545.wmv.html
-	 */
+
 	public static String getFileMD5String(File file) throws IOException {
 		FileInputStream in = new FileInputStream(file);
 		FileChannel ch = in.getChannel();
@@ -112,3 +104,14 @@ https://clipwatching.com/ya6zxmtusf37/WANZ-296.mp4.html
 		}
 	}
 }
+
+
+/**
+ * 功能：得到文件的md5值。
+ *XVSR-510 https://avgle.com/video/gNEDxD_i0DQ/%E4%BA%BA%E5%A6%BB%E6%BF%83%E4%BA%A4-%E6%83%85%E7%86%B1%E7%9A%84%E3%81%AA%E4%B8%AD%E5%87%BA%E3%81%97%E6%B7%AB%E4%BA%A4%E8%A8%98%E9%8C%B2-%E4%BB%A4%E5%92%8C%E3%82%8C%E3%81%84-xvsr-510
+	https://clipwatching.com/6puazt94on68/VENU-496.mp4.html
+	https://clipwatching.com/ya6zxmtusf37/WANZ-296.mp4.html
+	下载地址：http://katfile.com/udsjjxafwyrj/1pondo-081716_363.zip.html   水谷心音
+	下載地址：https://katfile.com/fpd3msoh1sb8/STARS-166.mp4.html cool
+	下载地址：https://rapidgator.net/file/5e286975a4419b762ca457c144e6b76d/STAR-545.wmv.html
+ */
