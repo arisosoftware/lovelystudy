@@ -24,3 +24,6 @@ hs_err_pid*
 /logs/
 /bin/
  
+/target/
+/.apt_generated/
+/.apt_generated_tests/

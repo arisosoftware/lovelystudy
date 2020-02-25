@@ -16,13 +16,13 @@ import org.springframework.util.StringUtils;
 
 import com.google.common.collect.Lists;
 
-import com.lovelystudy.config.properties.SiteConfig;
+
 import com.lovelystudy.core.bean.Page;
 import com.lovelystudy.core.util.JsonUtil;
 import com.lovelystudy.module.collect.service.CollectService;
 import com.lovelystudy.module.comment.pojo.CommentWithBLOBs;
 import com.lovelystudy.module.comment.service.CommentService;
-import com.lovelystudy.module.es.service.TopicSearchService;
+ 
 import com.lovelystudy.module.log.pojo.LogEventEnum;
 import com.lovelystudy.module.log.pojo.LogTargetEnum;
 import com.lovelystudy.module.log.service.LogService;
@@ -52,14 +52,14 @@ public class TopicService {
 	private LogService logService;
 	@Autowired
 	private NotificationService notificationService;
-	@Autowired
-	private SiteConfig siteConfig;
+	//@Autowired
+	//private SiteConfig siteConfig;
 	@Autowired
 	private TagService tagService;
 	@Autowired
 	private TopicMapper topicMapper;
-	@Autowired
-	private TopicSearchService topicSearchService;
+	//@Autowired
+	////private TopicSearchService topicSearchService;
 	@Autowired
 	private TopicTagService topicTagService;
 	@Autowired
@@ -89,8 +89,8 @@ public class TopicService {
 		logService.save(LogEventEnum.CREATE_TOPIC, user.getId(), LogTargetEnum.TOPIC.name(), topic.getId(), null,
 				JsonUtil.objectToJson(topic), topic);
 		// 索引话题
-		if (siteConfig.isSearch())
-			topicSearchService.indexed(topic, user.getUsername());
+		//if (siteConfig.isSearch())
+		//	topicSearchService.indexed(topic, user.getUsername());
 		return topic;
 	}
 
@@ -109,8 +109,8 @@ public class TopicService {
 			// 删除话题
 			topicMapper.deleteByPrimaryKey(id);
 			// 删除索引
-			if (siteConfig.isSearch())
-				topicSearchService.deleteById(id);
+			//if (siteConfig.isSearch())
+			//	topicSearchService.deleteById(id);
 		}
 	}
 
@@ -226,8 +226,8 @@ public class TopicService {
 		logService.save(LogEventEnum.EDIT_TOPIC, user.getId(), LogTargetEnum.TOPIC.name(), topic.getId(),
 				JsonUtil.objectToJson(oldTopic), JsonUtil.objectToJson(topic), topic);
 		// 索引话题
-		if (siteConfig.isSearch())
-			topicSearchService.indexed(topic, user.getUsername());
+	//	if (siteConfig.isSearch())
+		//	topicSearchService.indexed(topic, user.getUsername());
 		return topic;
 	}
 
