@@ -15,7 +15,12 @@ import org.springframework.context.annotation.ComponentScan;
 public class Application {
 
 	public static void main(String[] args) {
+<<<<<<< HEAD
 		System.setProperty("es.set.netty.runtime.available.processors", "false");		
+=======
+		System.setProperty("es.set.netty.runtime.available.processors", "false");
+		
+>>>>>>> refs/remotes/origin/master
 		SpringApplication.run(Application.class, args);
 	}
 
