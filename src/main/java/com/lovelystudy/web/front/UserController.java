@@ -178,7 +178,6 @@ public class UserController extends BaseController {
 
 		User updateUser = new User();
 		updateUser.setId(user.getId());
-//    user.setEmail(email); TODO 还要对邮箱进行验证 另外这个方法将被删除，提到接口Controller里处理
 		if (bio != null && bio.trim().length() > 0)
 			updateUser.setBio(Jsoup.clean(bio, Whitelist.none()));
 		updateUser.setCommentEmail(commentEmail);

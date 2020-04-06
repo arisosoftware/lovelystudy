@@ -10,21 +10,15 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.lovelystudy.core.bean.Result;
 import com.lovelystudy.core.exception.ApiException;
+
+/**
+ * 错误页面统一处理
+ *
  
+ */
 @ControllerAdvice
 public class GlobalExceptionHandler {
-
-//	@Autowired
-//	private SiteConfig siteConfig;
-
-	/**
-	 * 错误页面统一处理
-	 *
-	 * @param request
-	 * @param e
-	 * @return
-	 * @throws Exception
-	 */
+ 
 	@ExceptionHandler(value = Exception.class)
 	public ModelAndView defaultErrorHandler(HttpServletRequest request, Exception e) throws Exception {
 		e.printStackTrace();

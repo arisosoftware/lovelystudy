@@ -7,9 +7,7 @@ import javax.crypto.spec.SecretKeySpec;
 
  
 public class AESHelper {
-	/**
-	 * 算法/模式/填充 *
-	 */
+	 
 	private static final String CipherMode = "AES";
 
 	/**
