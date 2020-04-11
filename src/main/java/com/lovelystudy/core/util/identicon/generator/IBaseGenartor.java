@@ -2,9 +2,7 @@ package com.lovelystudy.core.util.identicon.generator;
 
 import java.awt.Color;
 
-/**
- * Author: Bryant Hang Date: 15/1/10 Time: 下午2:43
- */
+ 
 public interface IBaseGenartor {
 	/**
 	 * 获取图片背景色

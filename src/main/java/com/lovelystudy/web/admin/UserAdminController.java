@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.lovelystudy.config.properties.SiteConfig;
 import com.lovelystudy.core.base.BaseController;
-import com.lovelystudy.core.bean.Result;
+import com.lovelystudy.core.bean.Return;
 import com.lovelystudy.core.exception.ApiAssert;
 import com.lovelystudy.module.user.pojo.User;
 import com.lovelystudy.module.user.service.UserService;
@@ -32,16 +32,16 @@ public class UserAdminController extends BaseController {
 
 	@GetMapping("/block")
 	@ResponseBody
-	public Result block(Integer id) {
+	public Return block(Integer id) {
 		userService.blockUser(id);
-		return Result.success();
+		return Return.success();
 	}
 
 	@GetMapping("/delete")
 	@ResponseBody
-	public Result delete(Integer id) {
+	public Return delete(Integer id) {
 		userService.deleteById(id);
-		return Result.success();
+		return Return.success();
 	}
 
 	@GetMapping("/edit")
@@ -58,7 +58,7 @@ public class UserAdminController extends BaseController {
 
 	@PostMapping("/edit")
 	@ResponseBody
-	public Result update(Integer id, String username, String password, Integer reputation) {
+	public Return update(Integer id, String username, String password, Integer reputation) {
 		ApiAssert.notEmpty(username, "用户名不能为空");
 		ApiAssert.notNull(reputation, "声望不能为空");
 		User user = userService.findById(id);
@@ -69,7 +69,7 @@ public class UserAdminController extends BaseController {
 		}
 		user.setReputation(reputation);
 		userService.update(user);
-		return Result.success();
+		return Return.success();
 	}
 
 }

@@ -8,12 +8,9 @@ import org.springframework.util.StringUtils;
 
 import com.google.common.base.Preconditions;
 import com.google.common.math.DoubleMath;
-
 import com.lovelystudy.core.util.identicon.generator.IBaseGenartor;
 
-/**
- * Author: Bryant Hang Date: 15/1/10 Time: 下午2:44
- */
+ 
 public class DefaultGenerator implements IBaseGenartor {
 	private boolean[][] booleanValueArray;
 	private Random random = new Random();

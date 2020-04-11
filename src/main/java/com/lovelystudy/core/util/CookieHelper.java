@@ -6,18 +6,12 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- * Cookie工具类
- * <p>
- * 注意：在cookie的名或值中不能使用分号（;）、逗号（,）、等号（=）以及空格
- * </p>
-  */
+// 注意：在cookie的名或值中不能使用分号（;）、逗号（,）、等号（=）以及空格
+
 public class CookieHelper {
 
-	/* 浏览器关闭时自动删除 */
 	public final static int CLEAR_BROWSER_IS_CLOSED = -1;
 
-	/* 立即删除 */
 	public final static int CLEAR_IMMEDIATELY_REMOVE = 0;
 
 	private static final Logger logger = Logger.getLogger("CookieHelper");
@@ -28,38 +22,32 @@ public class CookieHelper {
 	 * </p>
 	 *
 	 * @param response
-	 * @param domain   所在域
+	 * @param domain   所在域 null or "" 不设置该参数默认 当前所在域
 	 * @param path     域名路径
 	 * @param name     名称
 	 * @param value    内容
 	 * @param maxAge   生命周期参数
-	 * @param httpOnly 只读
-	 * @param secured  Https协议下安全传输
+	 * @param httpOnly 只读 只读设置
+	 * @param secured  Cookie 只在Https协议下传输设置
 	 */
 	public static void addCookie(HttpServletResponse response, String domain, String path, String name, String value,
 			int maxAge, boolean httpOnly, boolean secured) {
 		Cookie cookie = new Cookie(name, value);
-		/**
-		 * 不设置该参数默认 当前所在域
-		 */
+
 		if (domain != null && !"".equals(domain)) {
 			cookie.setDomain(domain);
 		}
 		cookie.setPath(path);
 		cookie.setMaxAge(maxAge);
 
-		/** Cookie 只在Https协议下传输设置 */
 		if (secured) {
 			cookie.setSecure(secured);
 		}
 
-		/** Cookie 只读设置 */
 		if (httpOnly) {
 			addHttpOnlyCookie(response, cookie);
 		} else {
-			/*
-			 * //servlet 3.0 support cookie.setHttpOnly(httpOnly);
-			 */
+			// servlet 3.0 support cookie.setHttpOnly(httpOnly);
 			response.addCookie(cookie);
 		}
 	}

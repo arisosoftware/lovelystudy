@@ -19,7 +19,7 @@ import com.google.common.collect.Maps;
 import com.lovelystudy.config.properties.MailTemplateConfig;
 import com.lovelystudy.config.properties.SiteConfig;
 import com.lovelystudy.core.base.BaseController;
-import com.lovelystudy.core.bean.Result;
+import com.lovelystudy.core.bean.Return;
 import com.lovelystudy.core.exception.ApiException;
 import com.lovelystudy.core.util.EmailUtil;
 import com.lovelystudy.core.util.FileType;
@@ -54,7 +54,7 @@ public class CommonApiController extends BaseController {
 	private UserService userService;
 
 	@GetMapping("/sendEmailCode")
-	public Result sendEmailCode(String email) throws ApiException {
+	public Return sendEmailCode(String email) throws ApiException {
 		if (!StrUtil.check(email, StrUtil.check))
 			throw new ApiException("请输入正确的Email");
 
@@ -68,7 +68,7 @@ public class CommonApiController extends BaseController {
 		String subject = freemarkerUtil.format((String) mailTemplateConfig.getRegister().get("subject"), params);
 		String content = freemarkerUtil.format((String) mailTemplateConfig.getRegister().get("content"), params);
 		emailUtil.sendEmail(email, subject, content);
-		return Result.success();
+		return Return.success();
 	}
 
 	/**

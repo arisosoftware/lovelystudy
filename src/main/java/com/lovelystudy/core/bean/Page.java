@@ -2,9 +2,7 @@ package com.lovelystudy.core.bean;
 
 import java.util.List;
 
-/**
- * 
- */
+ 
 public class Page<T> {
 
 	private List<T> content;

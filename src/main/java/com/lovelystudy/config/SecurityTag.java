@@ -19,13 +19,6 @@ public class SecurityTag {
 		return false;
 	}
 
-	/**
-	 * Is the admin_user granted all of the grantedAuthorities passed in
-	 *
-	 * @param checkForAuths a string array of grantedAuth
-	 * @return true if admin_user has all of the listed authorities/roles, otherwise
-	 *         false
-	 */
 	public boolean allGranted(String[] checkForAuths) {
 		Set<String> userAuths = getUserAuthorities();
 		for (String auth : checkForAuths) {
@@ -36,13 +29,6 @@ public class SecurityTag {
 		return true;
 	}
 
-	/**
-	 * Is the admin_user granted any of the grantedAuthorities passed into
-	 *
-	 * @param checkForAuths a string array of grantedAuth
-	 * @return true if admin_user has any of the listed authorities/roles, otherwise
-	 *         false
-	 */
 	public boolean anyGranted(String[] checkForAuths) {
 		Set<String> userAuths = getUserAuthorities();
 		for (String auth : checkForAuths) {
@@ -52,11 +38,6 @@ public class SecurityTag {
 		return false;
 	}
 
-	/**
-	 * Gets the admin_user name of the admin_user from the Authentication object
-	 *
-	 * @return the admin_user name as string
-	 */
 	public String getPrincipal() {
 		Object obj = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
@@ -84,11 +65,6 @@ public class SecurityTag {
 		}
 	}
 
-	/**
-	 * Get authenticated status
-	 *
-	 * @return
-	 */
 	public boolean isAuthenticated() {
 		Object obj = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		if (obj instanceof org.springframework.security.core.userdetails.User) {
@@ -97,11 +73,6 @@ public class SecurityTag {
 		return false;
 	}
 
-	/**
-	 * Get admin_user block status
-	 *
-	 * @return
-	 */
 	public boolean isLock() {
 		Object obj = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
@@ -112,12 +83,6 @@ public class SecurityTag {
 		}
 	}
 
-	/**
-	 * is the admin_user granted none of the supplied roles
-	 *
-	 * @param checkForAuths a string array of roles
-	 * @return true only if none of listed roles are granted
-	 */
 	public boolean noneGranted(String[] checkForAuths) {
 		Set<String> userAuths = getUserAuthorities();
 		for (String auth : checkForAuths) {

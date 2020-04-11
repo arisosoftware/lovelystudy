@@ -2,9 +2,7 @@ package com.lovelystudy.core.bean;
 
 import java.util.Map;
 
-/**
- * 
- */
+
 public class Message {
 
 	private Map<String, Object> payload;

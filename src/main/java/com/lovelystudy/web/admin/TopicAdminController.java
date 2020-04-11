@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.lovelystudy.config.properties.SiteConfig;
 import com.lovelystudy.core.base.BaseController;
-import com.lovelystudy.core.bean.Result;
+import com.lovelystudy.core.bean.Return;
 import com.lovelystudy.module.topic.pojo.Topic;
 import com.lovelystudy.module.topic.pojo.TopicWithBLOBs;
 import com.lovelystudy.module.topic.service.TopicService;
@@ -37,10 +37,10 @@ public class TopicAdminController extends BaseController {
 	 */
 	@GetMapping("/delete")
 	@ResponseBody
-	public Result delete(Integer id) {
+	public Return delete(Integer id) {
 		// delete topic
 		topicService.deleteById(id, getAdminUser().getId());
-		return Result.success();
+		return Return.success();
 	}
 
 	/**
@@ -67,11 +67,11 @@ public class TopicAdminController extends BaseController {
 	 */
 	@GetMapping("/good")
 	@ResponseBody
-	public Result good(Integer id) {
+	public Return good(Integer id) {
 		TopicWithBLOBs topic = topicService.findById(id);
 		topic.setGood(!topic.getGood());
 		topicService.update(topic);
-		return Result.success();
+		return Return.success();
 	}
 
 	/**
@@ -100,11 +100,11 @@ public class TopicAdminController extends BaseController {
 	 */
 	@GetMapping("/top")
 	@ResponseBody
-	public Result top(Integer id) {
+	public Return top(Integer id) {
 		TopicWithBLOBs topic = topicService.findById(id);
 		topic.setTop(!topic.getTop());
 		topicService.update(topic);
-		return Result.success();
+		return Return.success();
 	}
 
 	/**
@@ -116,13 +116,13 @@ public class TopicAdminController extends BaseController {
 	 */
 	@PostMapping("/edit")
 	@ResponseBody
-	public Result update(Integer id, String title, String content) {
+	public Return update(Integer id, String title, String content) {
 		TopicWithBLOBs topic = new TopicWithBLOBs();
 		topic.setId(id);
 		topic.setTitle(title);
 		topic.setContent(content);
 		topic.setModifyTime(new Date());
 		topicService.update(topic);
-		return Result.success();
+		return Return.success();
 	}
 }

@@ -1,8 +1,5 @@
 package com.lovelystudy.config.properties;
-
-/**
- * 
- */
+ 
 public class OAuth2Config {
 
 	private OAuth2 github;

@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.lovelystudy.config.properties.SiteConfig;
 import com.lovelystudy.core.base.BaseController;
 import com.lovelystudy.core.bean.Page;
-import com.lovelystudy.core.bean.Result;
+import com.lovelystudy.core.bean.Return;
 import com.lovelystudy.core.exception.ApiAssert;
 import com.lovelystudy.core.util.CookieHelper;
 import com.lovelystudy.core.util.EnumUtil;
@@ -62,12 +62,12 @@ public class IndexApiController extends BaseController {
 	 * @return Page对象，里面有分页信息
 	 */
 	@GetMapping("/")
-	public Result index(@RequestParam(defaultValue = "1") Integer pageNo, @RequestParam(defaultValue = "") String tab) {
+	public Return index(@RequestParam(defaultValue = "1") Integer pageNo, @RequestParam(defaultValue = "") String tab) {
 		if (!StringUtils.isEmpty(tab)) {
 			ApiAssert.isTrue(EnumUtil.isDefined(TopicTab.values(), tab), "参数错误");
 		}
 		Page<Map> page = topicService.page(pageNo, siteConfig.getPageSize(), tab);
-		return Result.success(page);
+		return Return.success(page);
 	}
 
 	/**
@@ -79,7 +79,7 @@ public class IndexApiController extends BaseController {
 	 * @return
 	 */
 	@PostMapping("/login")
-	public Result login(String username, String password, HttpServletResponse response) {
+	public Return login(String username, String password, HttpServletResponse response) {
 		ApiAssert.notEmpty(username, "用户名不能为空");
 		ApiAssert.notEmpty(password, "密码不能为空");
 
@@ -94,7 +94,7 @@ public class IndexApiController extends BaseController {
 				Base64Helper.encode(user.getToken().getBytes()), siteConfig.getCookie().getUserMaxAge() * 24 * 60 * 60,
 				true, false);
 
-		return Result.success();
+		return Return.success();
 	}
 
 	/**
@@ -109,7 +109,7 @@ public class IndexApiController extends BaseController {
 	 * @return
 	 */
 	@PostMapping("/register")
-	public Result register(String username, String password, String email, String emailCode, String code,
+	public Return register(String username, String password, String email, String emailCode, String code,
 			HttpSession session) {
 		String genCaptcha = (String) session.getAttribute("index_code");
 		ApiAssert.notEmpty(code, "验证码不能为空");
@@ -137,7 +137,7 @@ public class IndexApiController extends BaseController {
 		// 创建用户
 		userService.createUser(username, password, email, avatar, null, null);
 
-		return Result.success();
+		return Return.success();
 	}
 
 	/**
@@ -148,10 +148,10 @@ public class IndexApiController extends BaseController {
 	 * @return
 	 */
 	@GetMapping("/search")
-	public Result search(String keyword, @RequestParam(defaultValue = "1") Integer pageNo) {
+	public Return search(String keyword, @RequestParam(defaultValue = "1") Integer pageNo) {
 		org.springframework.data.domain.Page<TopicIndex> page = topicSearchService.query(keyword, pageNo,
 				siteConfig.getPageSize());
-		return Result.success(page);
+		return Return.success(page);
 	}
 
 	/**
@@ -161,8 +161,8 @@ public class IndexApiController extends BaseController {
 	 * @return Page对象，里面有分页信息
 	 */
 	@GetMapping("/tags")
-	public Result tags(@RequestParam(defaultValue = "1") Integer pageNo) {
-		return Result.success(tagService.page(pageNo, siteConfig.getPageSize()));
+	public Return tags(@RequestParam(defaultValue = "1") Integer pageNo) {
+		return Return.success(tagService.page(pageNo, siteConfig.getPageSize()));
 	}
 
 	/**
@@ -171,8 +171,8 @@ public class IndexApiController extends BaseController {
 	 * @return Page对象，里面有分页信息
 	 */
 	@GetMapping("/top100")
-	public Result top100() {
-		return Result.success(userService.findByReputation(1, 100));
+	public Return top100() {
+		return Return.success(userService.findByReputation(1, 100));
 	}
 
 }

@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.lovelystudy.config.properties.SiteConfig;
 import com.lovelystudy.core.base.BaseController;
-import com.lovelystudy.core.bean.Result;
+import com.lovelystudy.core.bean.Return;
 import com.lovelystudy.core.exception.ApiAssert;
 import com.lovelystudy.module.security.pojo.AdminUser;
 import com.lovelystudy.module.security.pojo.Role;
@@ -64,7 +64,7 @@ public class AdminUserController extends BaseController {
 
 	@PostMapping("/add")
 	@ResponseBody
-	public Result save(String username, String password, Integer roleId) {
+	public Return save(String username, String password, Integer roleId) {
 		ApiAssert.notEmpty(username, "用户名不能为空");
 		ApiAssert.notEmpty(password, "密码不能为空");
 		ApiAssert.notNull(roleId, "请选择角色");
@@ -80,12 +80,12 @@ public class AdminUserController extends BaseController {
 		adminUser.setInTime(new Date());
 		adminUser.setAttempts(0);
 		adminUserService.save(adminUser);
-		return Result.success();
+		return Return.success();
 	}
 
 	@PostMapping("/edit")
 	@ResponseBody
-	public Result update(Integer id, String username, String oldPassword, String password, Integer roleId) {
+	public Return update(Integer id, String username, String oldPassword, String password, Integer roleId) {
 		ApiAssert.notNull(id, "用户ID不存在");
 		ApiAssert.notEmpty(username, "用户名不能为空");
 		ApiAssert.notNull(roleId, "请选择角色");
@@ -99,6 +99,6 @@ public class AdminUserController extends BaseController {
 		}
 		adminUser.setRoleId(roleId);
 		adminUserService.update(adminUser);
-		return Result.success();
+		return Return.success();
 	}
 }

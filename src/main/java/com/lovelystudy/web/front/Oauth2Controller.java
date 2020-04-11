@@ -90,17 +90,20 @@ public class Oauth2Controller extends BaseController {
 			oauth2UserService.createOAuth2User(nickName, avatar, user.getId(), githubId, accessToken,
 					Oauth2UserType.GITHUB.name());
 		}
-		// 把用户信息写入cookie
-		CookieHelper.addCookie(response, siteConfig.getCookie().getDomain(), "/", siteConfig.getCookie().getUserName(),
-				Base64Helper.encode(user.getToken().getBytes()), siteConfig.getCookie().getUserMaxAge() * 24 * 60 * 60,
-				true, false);
+ 
+		CookieHelper.addCookie(response, 
+								siteConfig.getCookie().getDomain(),"/", 
+								siteConfig.getCookie().getUserName(),
+								Base64Helper.encode(user.getToken().getBytes()), 
+								siteConfig.getCookie().getUserMaxAge() * 24 * 60 * 60,
+								true, false);
 		return redirect("/");
 	}
 
 	@GetMapping("/github/login")
 	public String githubLogin(HttpSession session) {
 		String state = StrUtil.randomString(6);
-		session.setAttribute("state", state); // TODO 如果做分布式，这里还有些问题
+		session.setAttribute("state", state);  
 		String url = "https://github.com/login/oauth/authorize?client_id="
 				+ siteConfig.getOauth2().getGithub().getClientId() + "&redirect_uri="
 				+ siteConfig.getOauth2().getGithub().getCallbackUrl() + "&scope=user" + "&state=" + state;

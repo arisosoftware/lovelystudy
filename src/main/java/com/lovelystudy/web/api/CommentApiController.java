@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.lovelystudy.core.base.BaseController;
-import com.lovelystudy.core.bean.Result;
+import com.lovelystudy.core.bean.Return;
 import com.lovelystudy.core.exception.ApiAssert;
 import com.lovelystudy.core.util.EnumUtil;
 import com.lovelystudy.module.comment.pojo.Comment;
@@ -44,7 +44,7 @@ public class CommentApiController extends BaseController {
 	 * @return
 	 */
 	@PostMapping("/edit")
-	public Result edit(Integer id, String content) {
+	public Return edit(Integer id, String content) {
 		User user = getApiUser();
 		ApiAssert.isTrue(user.getReputation() >= ReputationPermission.EDIT_COMMENT.getReputation(), "声望太低，不能进行这项操作");
 		ApiAssert.notEmpty(content, "评论内容不能为空");
@@ -54,7 +54,7 @@ public class CommentApiController extends BaseController {
 		commentService.update(comment);
 		TopicWithBLOBs topic = topicService.findById(comment.getTopicId());
 		comment = commentService.update(topic, oldComment, comment, user.getId());
-		return Result.success(comment);
+		return Return.success(comment);
 	}
 
 	/**
@@ -64,8 +64,8 @@ public class CommentApiController extends BaseController {
 	 * @return
 	 */
 	@GetMapping("/list")
-	public Result list(Integer topicId) {
-		return Result.success(commentService.findCommentWithTopic(topicId));
+	public Return list(Integer topicId) {
+		return Return.success(commentService.findCommentWithTopic(topicId));
 	}
 
 	/**
@@ -77,7 +77,7 @@ public class CommentApiController extends BaseController {
 	 * @return
 	 */
 	@PostMapping("/save")
-	public Result save(Integer topicId, Integer commentId, String content) {
+	public Return save(Integer topicId, Integer commentId, String content) {
 		User user = getApiUser();
 		ApiAssert.notTrue(user.getBlock(), "你的帐户已经被禁用，不能进行此项操作");
 		ApiAssert.notEmpty(content, "评论内容不能为空");
@@ -87,7 +87,7 @@ public class CommentApiController extends BaseController {
 		ApiAssert.notNull(topic, "回复的话题不存在");
 
 		Comment comment = commentService.createComment(user.getId(), topic, commentId, content);
-		return Result.success(comment);
+		return Return.success(comment);
 	}
 
 	/**
@@ -98,7 +98,7 @@ public class CommentApiController extends BaseController {
 	 * @return
 	 */
 	@GetMapping("/{id}/vote")
-	public Result vote(@PathVariable Integer id, String action) {
+	public Return vote(@PathVariable Integer id, String action) {
 		User user = getApiUser();
 		ApiAssert.isTrue(user.getReputation() >= ReputationPermission.VOTE_COMMENT.getReputation(), "声望太低，不能进行这项操作");
 		CommentWithBLOBs comment = commentService.findById(id);
@@ -108,6 +108,6 @@ public class CommentApiController extends BaseController {
 		ApiAssert.isTrue(EnumUtil.isDefined(VoteAction.values(), action), "参数错误");
 
 		Map<String, Object> map = commentService.vote(user.getId(), comment, action);
-		return Result.success(map);
+		return Return.success(map);
 	}
 }

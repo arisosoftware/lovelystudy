@@ -18,7 +18,7 @@ public class MyAuthenticationProvider extends DaoAuthenticationProvider {
 		UsernamePasswordAuthenticationToken token = (UsernamePasswordAuthenticationToken) authentication;
 		String username = token.getName();
 		UserDetails userDetails = this.getUserDetailsService().loadUserByUsername(username);
-		// 验证密码是否正确
+
 		if (!new BCryptPasswordEncoder().matches((CharSequence) token.getCredentials(), userDetails.getPassword())) {
 			throw new AuthenticationServiceException("用户名或密码错误");
 		}

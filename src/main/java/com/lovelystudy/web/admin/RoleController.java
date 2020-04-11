@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.google.gson.Gson;
 
 import com.lovelystudy.core.base.BaseController;
-import com.lovelystudy.core.bean.Result;
+import com.lovelystudy.core.bean.Return;
 import com.lovelystudy.module.security.pojo.Role;
 import com.lovelystudy.module.security.pojo.RolePermission;
 import com.lovelystudy.module.security.service.PermissionService;
@@ -69,15 +69,15 @@ public class RoleController extends BaseController {
 
 	@PostMapping("/add")
 	@ResponseBody
-	public Result save(@RequestParam("nodeIds[]") Integer[] nodeIds, String name) {
+	public Return save(@RequestParam("nodeIds[]") Integer[] nodeIds, String name) {
 		roleService.saveOrUpdate(null, name, nodeIds);
-		return Result.success();
+		return Return.success();
 	}
 
 	@PostMapping("/edit")
 	@ResponseBody
-	public Result update(Integer id, @RequestParam("nodeIds[]") Integer[] nodeIds, String name) {
+	public Return update(Integer id, @RequestParam("nodeIds[]") Integer[] nodeIds, String name) {
 		roleService.saveOrUpdate(id, name, nodeIds);
-		return Result.success();
+		return Return.success();
 	}
 }

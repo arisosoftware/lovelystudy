@@ -8,14 +8,10 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.lovelystudy.core.bean.Result;
+import com.lovelystudy.core.bean.Return;
 import com.lovelystudy.core.exception.ApiException;
 
-/**
- * 错误页面统一处理
- *
  
- */
 @ControllerAdvice
 public class GlobalExceptionHandler {
  
@@ -37,17 +33,11 @@ public class GlobalExceptionHandler {
 		return HttpStatus.valueOf(statusCode);
 	}
 
-	/**
-	 * 接口错误统一处理
-	 *
-	 * @param e
-	 * @return
-	 * @throws Exception
-	 */
+	 
 	@ExceptionHandler(value = ApiException.class)
 	@ResponseBody
-	public Result jsonErrorHandler(ApiException e) throws Exception {
-		Result result = new Result();
+	public Return jsonErrorHandler(ApiException e) throws Exception {
+		Return result = new Return();
 		result.setCode(e.getCode());
 		result.setDescription(e.getMessage());
 		return result;

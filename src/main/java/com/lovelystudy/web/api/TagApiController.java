@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.lovelystudy.config.properties.SiteConfig;
 import com.lovelystudy.core.base.BaseController;
-import com.lovelystudy.core.bean.Result;
+import com.lovelystudy.core.bean.Return;
 import com.lovelystudy.module.es.service.TagSearchService;
 import com.lovelystudy.module.tag.service.TagService;
 
@@ -33,13 +33,13 @@ public class TagApiController extends BaseController {
 	 * @return
 	 */
 	@GetMapping("/autocomplete")
-	public Result autocomplete(String keyword) {
+	public Return autocomplete(String keyword) {
 		if (StringUtils.isEmpty(keyword))
-			return Result.success();
+			return Return.success();
 		if (siteConfig.isSearch()) {
-			return Result.success(tagSearchService.query(keyword, 7));
+			return Return.success(tagSearchService.query(keyword, 7));
 		} else {
-			return Result.success(tagService.findByNameLike(keyword, 0, 7));
+			return Return.success(tagService.findByNameLike(keyword, 0, 7));
 		}
 	}
 
