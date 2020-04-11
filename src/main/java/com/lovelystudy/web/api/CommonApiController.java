@@ -15,9 +15,8 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.google.common.collect.Maps;
-
-import com.lovelystudy.config.properties.MailTemplateConfig;
-import com.lovelystudy.config.properties.SiteConfig;
+import com.lovelystudy.config.MailTemplateConfig;
+import com.lovelystudy.config.SiteConfig;
 import com.lovelystudy.core.base.BaseController;
 import com.lovelystudy.core.bean.ResponseBean;
 import com.lovelystudy.core.exception.ApiException;

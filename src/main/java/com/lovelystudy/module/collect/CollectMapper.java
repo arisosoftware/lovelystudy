@@ -1,11 +1,9 @@
-package com.lovelystudy.module.collect.mapper;
+package com.lovelystudy.module.collect;
 
 import java.util.List;
 import java.util.Map;
 
 import org.apache.ibatis.annotations.Param;
-
-import com.lovelystudy.module.collect.pojo.Collect;
 @SuppressWarnings("rawtypes")
 public interface CollectMapper {
 	int countByTopicId(Integer topicId);

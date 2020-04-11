@@ -16,7 +16,6 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 import org.springframework.security.web.authentication.rememberme.PersistentTokenBasedRememberMeServices;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
-import com.lovelystudy.config.properties.SiteConfig;
 import com.lovelystudy.module.security.core.MyAuthenticationProvider;
 import com.lovelystudy.module.security.core.MyCustomAuthenticationFilter;
 import com.lovelystudy.module.security.core.MyFilterSecurityInterceptor;

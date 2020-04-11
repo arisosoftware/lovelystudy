@@ -7,7 +7,7 @@ import org.springframework.util.Assert;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.lovelystudy.config.properties.LogEventConfig;
+import com.lovelystudy.config.LogEventConfig;
 import com.lovelystudy.core.base.BaseController;
 import com.lovelystudy.core.exception.ApiAssert;
 import com.lovelystudy.core.util.FreemarkerUtil;

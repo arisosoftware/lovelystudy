@@ -11,11 +11,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.lovelystudy.config.properties.LogEventConfig;
-import com.lovelystudy.config.properties.SiteConfig;
+import com.lovelystudy.config.LogEventConfig;
+import com.lovelystudy.config.SiteConfig;
 import com.lovelystudy.core.base.BaseController;
 import com.lovelystudy.core.util.FreemarkerUtil;
-import com.lovelystudy.module.collect.service.CollectService;
+import com.lovelystudy.module.collect.CollectService;
 import com.lovelystudy.module.log.service.LogService;
 import com.lovelystudy.module.tag.pojo.Tag;
 import com.lovelystudy.module.tag.service.TagService;

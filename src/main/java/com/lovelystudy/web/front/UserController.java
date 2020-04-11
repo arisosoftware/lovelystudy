@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.lovelystudy.config.properties.SiteConfig;
+import com.lovelystudy.config.SiteConfig;
 import com.lovelystudy.core.base.BaseController;
 import com.lovelystudy.core.util.CookieHelper;
 import com.lovelystudy.core.util.encrypt.Base64Helper;

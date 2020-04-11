@@ -2,7 +2,7 @@ package com.lovelystudy.core.base;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.lovelystudy.config.properties.SiteConfig;
+import com.lovelystudy.config.SiteConfig;
 import com.lovelystudy.core.exception.ApiAssert;
 import com.lovelystudy.module.security.pojo.AdminUser;
 import com.lovelystudy.module.user.pojo.User;

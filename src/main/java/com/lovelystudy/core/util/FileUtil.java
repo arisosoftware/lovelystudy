@@ -18,8 +18,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.util.DigestUtils;
 import org.springframework.web.multipart.MultipartFile;
- 
-import com.lovelystudy.config.properties.SiteConfig;
+
+import com.lovelystudy.config.SiteConfig;
 import com.lovelystudy.module.attachment.pojo.Attachment;
 import com.lovelystudy.module.attachment.service.AttachmentService;
  

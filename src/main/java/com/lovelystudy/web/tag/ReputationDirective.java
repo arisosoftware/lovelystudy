@@ -6,7 +6,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.lovelystudy.config.properties.SiteConfig;
+import com.lovelystudy.config.SiteConfig;
 import com.lovelystudy.core.bean.Page;
 import com.lovelystudy.module.user.pojo.User;
 import com.lovelystudy.module.user.service.UserService;

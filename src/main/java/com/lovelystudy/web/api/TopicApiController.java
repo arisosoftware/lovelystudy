@@ -18,7 +18,7 @@ import com.lovelystudy.core.base.BaseEntity;
 import com.lovelystudy.core.bean.ResponseBean;
 import com.lovelystudy.core.exception.ApiAssert;
 import com.lovelystudy.core.util.EnumUtil;
-import com.lovelystudy.module.collect.service.CollectService;
+import com.lovelystudy.module.collect.CollectService;
 import com.lovelystudy.module.tag.pojo.Tag;
 import com.lovelystudy.module.tag.service.TagService;
 import com.lovelystudy.module.topic.pojo.Topic;

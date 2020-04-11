@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.lovelystudy.module.collect.mapper.CollectMapper">
-  <resultMap id="BaseResultMap" type="com.lovelystudy.module.collect.pojo.Collect">
+<mapper namespace="com.lovelystudy.module.collect.CollectMapper">
+  <resultMap id="BaseResultMap" type="com.lovelystudy.module.collect.Collect">
     <id column="id" jdbcType="INTEGER" property="id"/>
     <result column="in_time" jdbcType="TIMESTAMP" property="inTime"/>
     <result column="topic_id" jdbcType="INTEGER" property="topicId"/>
@@ -20,7 +20,7 @@
     DELETE FROM collect
     WHERE id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.lovelystudy.module.collect.pojo.Collect">
+  <insert id="insert" parameterType="com.lovelystudy.module.collect.Collect">
     <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
       SELECT LAST_INSERT_ID()
     </selectKey>
@@ -29,7 +29,7 @@
     values (#{inTime,jdbcType=TIMESTAMP}, #{topicId,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}
     )
   </insert>
-  <insert id="insertSelective" parameterType="com.lovelystudy.module.collect.pojo.Collect">
+  <insert id="insertSelective" parameterType="com.lovelystudy.module.collect.Collect">
     <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
       SELECT LAST_INSERT_ID()
     </selectKey>
@@ -57,7 +57,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.lovelystudy.module.collect.pojo.Collect">
+  <update id="updateByPrimaryKeySelective" parameterType="com.lovelystudy.module.collect.Collect">
     update collect
     <set>
       <if test="inTime != null">
@@ -72,7 +72,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.lovelystudy.module.collect.pojo.Collect">
+  <update id="updateByPrimaryKey" parameterType="com.lovelystudy.module.collect.Collect">
     UPDATE collect
     SET in_time = #{inTime,jdbcType=TIMESTAMP},
       topic_id  = #{topicId,jdbcType=INTEGER},

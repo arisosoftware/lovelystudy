@@ -7,7 +7,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.lovelystudy.config.properties.SiteConfig;
 import com.lovelystudy.core.base.BaseEntity;
 import com.lovelystudy.web.tag.CommentsDirective;
 import com.lovelystudy.web.tag.CurrentUserDirective;

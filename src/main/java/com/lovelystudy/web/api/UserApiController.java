@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.lovelystudy.config.properties.SiteConfig;
+import com.lovelystudy.config.SiteConfig;
 import com.lovelystudy.core.base.BaseController;
 import com.lovelystudy.core.bean.Page;
 import com.lovelystudy.core.bean.ResponseBean;
@@ -26,7 +26,7 @@ import com.lovelystudy.core.exception.ApiAssert;
 import com.lovelystudy.core.util.CookieHelper;
 import com.lovelystudy.core.util.encrypt.Base64Helper;
 import com.lovelystudy.core.util.identicon.Identicon;
-import com.lovelystudy.module.collect.service.CollectService;
+import com.lovelystudy.module.collect.CollectService;
 import com.lovelystudy.module.comment.service.CommentService;
 import com.lovelystudy.module.log.service.LogService;
 import com.lovelystudy.module.topic.service.TopicService;

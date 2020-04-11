@@ -1,4 +1,4 @@
-package com.lovelystudy.module.collect.pojo;
+package com.lovelystudy.module.collect;
 
 import java.util.Date;
 

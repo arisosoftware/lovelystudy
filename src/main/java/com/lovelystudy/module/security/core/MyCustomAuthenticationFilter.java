@@ -20,7 +20,7 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 
-import com.lovelystudy.config.properties.SiteConfig;
+import com.lovelystudy.config.SiteConfig;
 import com.lovelystudy.module.security.pojo.AdminUser;
 import com.lovelystudy.module.security.service.AdminUserService;
 

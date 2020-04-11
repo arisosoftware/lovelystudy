@@ -7,7 +7,6 @@ import org.springframework.web.servlet.config.annotation.PathMatchConfigurer;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
 
-import com.lovelystudy.config.properties.SiteConfig;
 import com.lovelystudy.web.interceptor.CommonInterceptor;
 import com.lovelystudy.web.interceptor.PjaxInterceptor;
 import com.lovelystudy.web.interceptor.UserInterceptor;

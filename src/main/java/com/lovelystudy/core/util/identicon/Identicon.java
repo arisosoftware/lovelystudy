@@ -18,7 +18,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 
 import com.google.common.base.Preconditions;
-import com.lovelystudy.config.properties.SiteConfig;
+import com.lovelystudy.config.SiteConfig;
 import com.lovelystudy.core.util.HashUtil;
 import com.lovelystudy.core.util.StrUtil;
 import com.lovelystudy.core.util.encrypt.MD5Helper;

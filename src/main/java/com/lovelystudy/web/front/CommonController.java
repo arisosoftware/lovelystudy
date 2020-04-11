@@ -17,7 +17,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.lovelystudy.config.properties.LogEventConfig;
+import com.lovelystudy.config.LogEventConfig;
 import com.lovelystudy.core.base.BaseController;
 import com.lovelystudy.core.util.FreemarkerUtil;
 import com.lovelystudy.module.log.service.LogService;

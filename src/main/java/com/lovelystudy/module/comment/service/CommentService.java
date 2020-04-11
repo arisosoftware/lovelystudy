@@ -16,9 +16,8 @@ import org.springframework.util.StringUtils;
 
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
-
-import com.lovelystudy.config.properties.MailTemplateConfig;
-import com.lovelystudy.config.properties.SiteConfig;
+import com.lovelystudy.config.MailTemplateConfig;
+import com.lovelystudy.config.SiteConfig;
 import com.lovelystudy.core.bean.Page;
 import com.lovelystudy.core.util.EmailUtil;
 import com.lovelystudy.core.util.FreemarkerUtil;

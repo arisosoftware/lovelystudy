@@ -24,7 +24,7 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
-import com.lovelystudy.config.properties.SiteConfig;
+import com.lovelystudy.config.SiteConfig;
 import com.lovelystudy.core.util.CookieHelper;
 import com.lovelystudy.core.util.JsonUtil;
 import com.lovelystudy.core.util.StrUtil;

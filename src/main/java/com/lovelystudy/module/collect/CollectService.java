@@ -1,4 +1,4 @@
-package com.lovelystudy.module.collect.service;
+package com.lovelystudy.module.collect;
 
 import java.util.Date;
 import java.util.List;
@@ -10,8 +10,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.lovelystudy.core.bean.Page;
 import com.lovelystudy.core.util.JsonUtil;
-import com.lovelystudy.module.collect.mapper.CollectMapper;
-import com.lovelystudy.module.collect.pojo.Collect;
 import com.lovelystudy.module.log.pojo.LogEventEnum;
 import com.lovelystudy.module.log.pojo.LogTargetEnum;
 import com.lovelystudy.module.log.service.LogService;

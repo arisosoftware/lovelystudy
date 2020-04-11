@@ -1,4 +1,4 @@
-package com.lovelystudy.config.properties;
+package com.lovelystudy.config;
 
 public class OAuth2 {
 	private String callbackUrl;

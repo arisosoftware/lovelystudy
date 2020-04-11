@@ -14,7 +14,7 @@ import org.springframework.util.StringUtils;
 
 import com.lovelystudy.core.bean.Page;
 import com.lovelystudy.core.util.JsonUtil;
-import com.lovelystudy.module.collect.service.CollectService;
+import com.lovelystudy.module.collect.CollectService;
 import com.lovelystudy.module.comment.service.CommentService;
 import com.lovelystudy.module.log.service.LogService;
 import com.lovelystudy.module.notification.service.NotificationService;

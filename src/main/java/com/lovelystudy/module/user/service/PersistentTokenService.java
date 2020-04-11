@@ -10,7 +10,7 @@ import org.springframework.security.web.authentication.rememberme.PersistentToke
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.lovelystudy.config.properties.SiteConfig;
+import com.lovelystudy.config.SiteConfig;
 import com.lovelystudy.module.user.mapper.RememberMeTokenMapper;
 import com.lovelystudy.module.user.pojo.RememberMeToken;
 
