@@ -26,8 +26,7 @@ import com.lovelystudy.core.util.encrypt.Base64Helper;
 import com.lovelystudy.core.util.identicon.Identicon;
 import com.lovelystudy.module.code.pojo.CodeEnum;
 import com.lovelystudy.module.code.service.CodeService;
-import com.lovelystudy.module.es.pojo.TopicIndex;
-import com.lovelystudy.module.es.service.TopicSearchService;
+
 import com.lovelystudy.module.tag.service.TagService;
 import com.lovelystudy.module.topic.pojo.TopicTab;
 import com.lovelystudy.module.topic.service.TopicService;
@@ -47,8 +46,6 @@ public class IndexApiController extends BaseController {
 	private SiteConfig siteConfig;
 	@Autowired
 	private TagService tagService;
-	@Autowired
-	private TopicSearchService topicSearchService;
 	@Autowired
 	private TopicService topicService;
 	@Autowired
@@ -148,10 +145,19 @@ public class IndexApiController extends BaseController {
 	 * @return
 	 */
 	@GetMapping("/search")
+<<<<<<< HEAD
 	public Return search(String keyword, @RequestParam(defaultValue = "1") Integer pageNo) {
 		org.springframework.data.domain.Page<TopicIndex> page = topicSearchService.query(keyword, pageNo,
 				siteConfig.getPageSize());
 		return Return.success(page);
+=======
+	public Result search(String keyword, @RequestParam(defaultValue = "1") Integer pageNo) {
+		
+		//TODO: remove fulltext search
+		//org.springframework.data.domain.Page<TopicIndex> page = topicSearchService.query(keyword, pageNo,siteConfig.getPageSize());
+		//return Result.success(page);
+		return null;
+>>>>>>> refs/remotes/origin/master
 	}
 
 	/**

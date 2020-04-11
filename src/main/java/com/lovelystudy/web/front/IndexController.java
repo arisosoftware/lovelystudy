@@ -14,8 +14,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.lovelystudy.config.properties.SiteConfig;
 import com.lovelystudy.core.base.BaseController;
 import com.lovelystudy.core.util.CookieHelper;
-import com.lovelystudy.module.es.pojo.TopicIndex;
-import com.lovelystudy.module.es.service.TopicSearchService;
 import com.lovelystudy.module.tag.service.TagService;
  
 @Controller
@@ -25,9 +23,7 @@ public class IndexController extends BaseController {
 	private SiteConfig siteConfig;
 	@Autowired
 	private TagService tagService;
-	@Autowired
-	private TopicSearchService topicSearchService;
-
+ 
 	/**
 	 * 后台登录
 	 *
@@ -71,9 +67,9 @@ public class IndexController extends BaseController {
 	@GetMapping("/search")
 	public String search(String keyword, @RequestParam(defaultValue = "1") Integer pageNo, Model model) {
 		Assert.notNull(keyword, "请输入关键词");
-		Page<TopicIndex> page = topicSearchService.query(keyword, pageNo, siteConfig.getPageSize());
-		model.addAttribute("page", page);
-		model.addAttribute("keyword", keyword);
+	//	Page<TopicIndex> page = topicSearchService.query(keyword, pageNo, siteConfig.getPageSize());
+		//model.addAttribute("page", page);
+		//model.addAttribute("keyword", keyword);
 		return "front/search";
 	}
 

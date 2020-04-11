@@ -43,10 +43,7 @@ spring:
   servlet:
     multipart:
       max-file-size: 2MB
-  data:
-    elasticsearch:
-      cluster-name: elasticsearch #默认为elasticsearch
-      cluster-nodes: 127.0.0.1:9300 #配置es节点信息，逗号分隔，如果没有指定，则启动ClientNode
+ 
 
 site:
   name: LovelyStudy
