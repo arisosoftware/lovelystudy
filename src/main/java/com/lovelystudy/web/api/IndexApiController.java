@@ -145,19 +145,12 @@ public class IndexApiController extends BaseController {
 	 * @return
 	 */
 	@GetMapping("/search")
-<<<<<<< HEAD
+ 
 	public Return search(String keyword, @RequestParam(defaultValue = "1") Integer pageNo) {
 		org.springframework.data.domain.Page<TopicIndex> page = topicSearchService.query(keyword, pageNo,
 				siteConfig.getPageSize());
 		return Return.success(page);
-=======
-	public Result search(String keyword, @RequestParam(defaultValue = "1") Integer pageNo) {
-		
-		//TODO: remove fulltext search
-		//org.springframework.data.domain.Page<TopicIndex> page = topicSearchService.query(keyword, pageNo,siteConfig.getPageSize());
-		//return Result.success(page);
-		return null;
->>>>>>> refs/remotes/origin/master
+
 	}
 
 	/**

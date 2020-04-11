@@ -9,7 +9,8 @@ import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
 @EnableAutoConfiguration(exclude = { ErrorMvcAutoConfiguration.class })
-@MapperScan("com.lovelystudy.module")
+@MapperScan({"com.lovelystudy.module"})
+
 @ComponentScan("com.lovelystudy")
 public class Application {
 

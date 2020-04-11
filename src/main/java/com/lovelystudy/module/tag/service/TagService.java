@@ -96,4 +96,11 @@ public class TagService {
 	public void update(Tag tag) {
 		tagMapper.updateByPrimaryKeySelective(tag);
 	}
+
+	 
+
+	public void indexedAll() {
+		// TODO Auto-generated method stub
+		
+	}
 }
