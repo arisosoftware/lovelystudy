@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.lovelystudy.config.properties.SiteConfig;
 import com.lovelystudy.core.base.BaseController;
 import com.lovelystudy.core.bean.Page;
-import com.lovelystudy.core.bean.Return;
+import com.lovelystudy.core.bean.ResponseBean;
 import com.lovelystudy.core.exception.ApiAssert;
 import com.lovelystudy.core.util.CookieHelper;
 import com.lovelystudy.core.util.encrypt.Base64Helper;
@@ -60,7 +60,7 @@ public class UserApiController extends BaseController {
 	 * @return
 	 */
 	@PostMapping("setting/changeAvatar")
-	public Return changeAvatar(String avatar) {
+	public ResponseBean changeAvatar(String avatar) {
 		ApiAssert.notEmpty(avatar, "头像不能为空");
 		String _avatar = avatar.substring(avatar.indexOf(",") + 1, avatar.length());
 		User user = getUser();
@@ -78,9 +78,9 @@ public class UserApiController extends BaseController {
 			bais.close();
 		} catch (Exception e) {
 			e.printStackTrace();
-			return Return.error("头像格式不正确");
+			return ResponseBean.error("头像格式不正确");
 		}
-		return Return.success();
+		return ResponseBean.success();
 	}
 
 	/**
@@ -91,13 +91,13 @@ public class UserApiController extends BaseController {
 	 * @return
 	 */
 	@PostMapping("/setting/changePassword")
-	public Return changePassword(String oldPassword, String newPassword) {
+	public ResponseBean changePassword(String oldPassword, String newPassword) {
 		User user = getApiUser();
 		ApiAssert.notTrue(user.getBlock(), "你的帐户已经被禁用，不能进行此项操作");
 		ApiAssert.isTrue(new BCryptPasswordEncoder().matches(oldPassword, user.getPassword()), "旧密码不正确");
 		user.setPassword(new BCryptPasswordEncoder().encode(newPassword));
 		userService.update(user);
-		return Return.success();
+		return ResponseBean.success();
 	}
 
 	/**
@@ -108,10 +108,10 @@ public class UserApiController extends BaseController {
 	 * @return
 	 */
 	@GetMapping("/{username}/collects")
-	public Return collects(@PathVariable String username, @RequestParam(defaultValue = "1") Integer pageNo) {
+	public ResponseBean collects(@PathVariable String username, @RequestParam(defaultValue = "1") Integer pageNo) {
 		User currentUser = userService.findByUsername(username);
 		Page<Map> page = collectService.findByUserId(pageNo, siteConfig.getPageSize(), currentUser.getId());
-		return Return.success(page);
+		return ResponseBean.success(page);
 	}
 
 	/**
@@ -123,12 +123,12 @@ public class UserApiController extends BaseController {
 	 * @return
 	 */
 	@GetMapping("/{username}/comments")
-	public Return comments(@PathVariable String username, @RequestParam(defaultValue = "1") Integer pageNo,
+	public ResponseBean comments(@PathVariable String username, @RequestParam(defaultValue = "1") Integer pageNo,
 			Integer pageSize) {
 		User currentUser = userService.findByUsername(username);
 		Page<Map> page = commentService.findByUser(pageNo,
 				pageSize > siteConfig.getPageSize() ? siteConfig.getPageSize() : pageSize, currentUser.getId());
-		return Return.success(page);
+		return ResponseBean.success(page);
 	}
 
 	/**
@@ -138,8 +138,8 @@ public class UserApiController extends BaseController {
 	 * @return
 	 */
 	@GetMapping("/{username}")
-	public Return profile(@PathVariable String username) {
-		return Return.success(userService.findByUsername(username));
+	public ResponseBean profile(@PathVariable String username) {
+		return ResponseBean.success(userService.findByUsername(username));
 	}
 
 	/**
@@ -148,14 +148,14 @@ public class UserApiController extends BaseController {
 	 * @return
 	 */
 	@GetMapping("/setting/refreshToken")
-	public Return refreshToken(HttpServletResponse response) {
+	public ResponseBean refreshToken(HttpServletResponse response) {
 		User user = getApiUser();
 		user = userService.refreshToken(user);
 		// 更新用户cookie
 		CookieHelper.addCookie(response, siteConfig.getCookie().getDomain(), "/", siteConfig.getCookie().getUserName(),
 				Base64Helper.encode(user.getToken().getBytes()), siteConfig.getCookie().getUserMaxAge() * 24 * 60 * 60,
 				true, false);
-		return Return.success();
+		return ResponseBean.success();
 	}
 
 	/**
@@ -165,9 +165,9 @@ public class UserApiController extends BaseController {
 	 * @return
 	 */
 	@GetMapping("/setting/log")
-	public Return scoreLog(@RequestParam(defaultValue = "1") Integer pageNo) {
+	public ResponseBean scoreLog(@RequestParam(defaultValue = "1") Integer pageNo) {
 		User user = getApiUser();
-		return Return.success(logService.findByUserId(pageNo, siteConfig.getPageSize(), user.getId()));
+		return ResponseBean.success(logService.findByUserId(pageNo, siteConfig.getPageSize(), user.getId()));
 	}
 
 	/**
@@ -179,12 +179,12 @@ public class UserApiController extends BaseController {
 	 * @return
 	 */
 	@GetMapping("/{username}/topics")
-	public Return topics(@PathVariable String username, @RequestParam(defaultValue = "1") Integer pageNo,
+	public ResponseBean topics(@PathVariable String username, @RequestParam(defaultValue = "1") Integer pageNo,
 			Integer pageSize) {
 		User currentUser = userService.findByUsername(username);
 		Page<Map> page = topicService.findByUser(pageNo,
 				pageSize > siteConfig.getPageSize() ? siteConfig.getPageSize() : pageSize, currentUser.getId());
-		return Return.success(page);
+		return ResponseBean.success(page);
 	}
 
 	/**
@@ -198,7 +198,7 @@ public class UserApiController extends BaseController {
 	 * @return
 	 */
 	@PostMapping("/setting/profile")
-	public Return updateUserInfo(String email, String url, String bio,
+	public ResponseBean updateUserInfo(String email, String url, String bio,
 			@RequestParam(defaultValue = "false") Boolean commentEmail,
 			@RequestParam(defaultValue = "false") Boolean replyEmail) {
 		User user = getApiUser();
@@ -212,6 +212,6 @@ public class UserApiController extends BaseController {
 		updateUser.setCommentEmail(commentEmail);
 		updateUser.setReplyEmail(replyEmail);
 		updateUser.setUrl(url);
-		return Return.success(userService.update(updateUser));
+		return ResponseBean.success(userService.update(updateUser));
 	}
 }

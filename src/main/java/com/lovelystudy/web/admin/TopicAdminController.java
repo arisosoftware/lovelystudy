@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.lovelystudy.config.properties.SiteConfig;
 import com.lovelystudy.core.base.BaseController;
-import com.lovelystudy.core.bean.Return;
+import com.lovelystudy.core.bean.ResponseBean;
 import com.lovelystudy.module.topic.pojo.Topic;
 import com.lovelystudy.module.topic.pojo.TopicWithBLOBs;
 import com.lovelystudy.module.topic.service.TopicService;
@@ -37,10 +37,10 @@ public class TopicAdminController extends BaseController {
 	 */
 	@GetMapping("/delete")
 	@ResponseBody
-	public Return delete(Integer id) {
+	public ResponseBean delete(Integer id) {
 		// delete topic
 		topicService.deleteById(id, getAdminUser().getId());
-		return Return.success();
+		return ResponseBean.success();
 	}
 
 	/**
@@ -67,11 +67,11 @@ public class TopicAdminController extends BaseController {
 	 */
 	@GetMapping("/good")
 	@ResponseBody
-	public Return good(Integer id) {
+	public ResponseBean good(Integer id) {
 		TopicWithBLOBs topic = topicService.findById(id);
 		topic.setGood(!topic.getGood());
 		topicService.update(topic);
-		return Return.success();
+		return ResponseBean.success();
 	}
 
 	/**
@@ -100,11 +100,11 @@ public class TopicAdminController extends BaseController {
 	 */
 	@GetMapping("/top")
 	@ResponseBody
-	public Return top(Integer id) {
+	public ResponseBean top(Integer id) {
 		TopicWithBLOBs topic = topicService.findById(id);
 		topic.setTop(!topic.getTop());
 		topicService.update(topic);
-		return Return.success();
+		return ResponseBean.success();
 	}
 
 	/**
@@ -116,13 +116,13 @@ public class TopicAdminController extends BaseController {
 	 */
 	@PostMapping("/edit")
 	@ResponseBody
-	public Return update(Integer id, String title, String content) {
+	public ResponseBean update(Integer id, String title, String content) {
 		TopicWithBLOBs topic = new TopicWithBLOBs();
 		topic.setId(id);
 		topic.setTitle(title);
 		topic.setContent(content);
 		topic.setModifyTime(new Date());
 		topicService.update(topic);
-		return Return.success();
+		return ResponseBean.success();
 	}
 }

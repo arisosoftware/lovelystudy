@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.lovelystudy.core.base.BaseController;
-import com.lovelystudy.core.bean.Return;
+import com.lovelystudy.core.bean.ResponseBean;
 import com.lovelystudy.core.exception.ApiAssert;
 import com.lovelystudy.module.collect.pojo.Collect;
 import com.lovelystudy.module.collect.service.CollectService;
@@ -25,7 +25,7 @@ public class CollectApiController extends BaseController {
 	private TopicService topicService;
 
 	@GetMapping("/add")
-	public Return add(Integer topicId) {
+	public ResponseBean add(Integer topicId) {
 		User user = getApiUser();
 		TopicWithBLOBs topic = topicService.findById(topicId);
 
@@ -36,17 +36,17 @@ public class CollectApiController extends BaseController {
 
 		collectService.createCollect(topic, user.getId());
 
-		return Return.success(collectService.countByTopicId(topicId));
+		return ResponseBean.success(collectService.countByTopicId(topicId));
 	}
 
 	@GetMapping("/delete")
-	public Return delete(Integer topicId) {
+	public ResponseBean delete(Integer topicId) {
 		User user = getApiUser();
 		Collect collect = collectService.findByUserIdAndTopicId(user.getId(), topicId);
 
 		ApiAssert.notNull(collect, "你还没收藏这个话题");
 
 		collectService.deleteById(collect.getId());
-		return Return.success(collectService.countByTopicId(topicId));
+		return ResponseBean.success(collectService.countByTopicId(topicId));
 	}
 }

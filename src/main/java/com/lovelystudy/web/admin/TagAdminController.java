@@ -15,7 +15,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.lovelystudy.config.properties.SiteConfig;
 import com.lovelystudy.core.base.BaseController;
 import com.lovelystudy.core.bean.Page;
-import com.lovelystudy.core.bean.Return;
+import com.lovelystudy.core.bean.ResponseBean;
 import com.lovelystudy.core.exception.ApiAssert;
 import com.lovelystudy.core.util.FileType;
 import com.lovelystudy.core.util.FileUtil;
@@ -51,12 +51,12 @@ public class TagAdminController extends BaseController {
 	 */
 	@GetMapping("/delete")
 	@ResponseBody
-	public Return delete(Integer id) {
+	public ResponseBean delete(Integer id) {
 		Tag tag = tagService.findById(id);
 		ApiAssert.notTrue(tag.getTopicCount() > 0, "这个标签还有关联的话题，请先处理话题内标签再来删除");
 
 		tagService.deleteById(id);
-		return Return.success();
+		return ResponseBean.success();
 	}
 
 	@GetMapping("/edit")

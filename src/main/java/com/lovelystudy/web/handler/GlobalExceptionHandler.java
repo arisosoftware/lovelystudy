@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.lovelystudy.core.bean.Return;
+import com.lovelystudy.core.bean.ResponseBean;
 import com.lovelystudy.core.exception.ApiException;
 
  
@@ -36,8 +36,8 @@ public class GlobalExceptionHandler {
 	 
 	@ExceptionHandler(value = ApiException.class)
 	@ResponseBody
-	public Return jsonErrorHandler(ApiException e) throws Exception {
-		Return result = new Return();
+	public ResponseBean jsonErrorHandler(ApiException e) throws Exception {
+		ResponseBean result = new ResponseBean();
 		result.setCode(e.getCode());
 		result.setDescription(e.getMessage());
 		return result;

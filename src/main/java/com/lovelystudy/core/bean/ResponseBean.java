@@ -1,29 +1,29 @@
 package com.lovelystudy.core.bean;
  
-public class Return {
+public class ResponseBean {
 
-	public static Return error() {
+	public static ResponseBean error() {
 		return error(null);
 	}
 
-	public static Return error(int code, String description) {
-		Return result = new Return();
+	public static ResponseBean error(int code, String description) {
+		ResponseBean result = new ResponseBean();
 		result.setCode(code);
 		result.setDescription(description);
 		result.setDetail(null);
 		return result;
 	}
 
-	public static Return error(String description) {
+	public static ResponseBean error(String description) {
 		return error(201, description);
 	}
 
-	public static Return success() {
+	public static ResponseBean success() {
 		return success(null);
 	}
 
-	public static Return success(Object detail) {
-		Return result = new Return();
+	public static ResponseBean success(Object detail) {
+		ResponseBean result = new ResponseBean();
 		result.setCode(200);
 		result.setDescription("success");
 		result.setDetail(detail);

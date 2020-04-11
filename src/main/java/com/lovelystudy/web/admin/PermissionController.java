@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.google.gson.Gson;
 
 import com.lovelystudy.core.base.BaseController;
-import com.lovelystudy.core.bean.Return;
+import com.lovelystudy.core.bean.ResponseBean;
 import com.lovelystudy.module.security.pojo.Permission;
 import com.lovelystudy.module.security.service.PermissionService;
 
@@ -31,7 +31,7 @@ public class PermissionController extends BaseController {
 
 	@PostMapping("/add")
 	@ResponseBody
-	public Return add(Integer id, String name, String value, String url,
+	public ResponseBean add(Integer id, String name, String value, String url,
 			@RequestParam(defaultValue = "0") Integer pid) {
 		Permission permission = new Permission();
 		permission.setId(id);
@@ -40,14 +40,14 @@ public class PermissionController extends BaseController {
 		permission.setPid(pid);
 		permission.setUrl(url);
 		permissionService.save(permission);
-		return Return.success();
+		return ResponseBean.success();
 	}
 
 	@GetMapping("/delete")
 	@ResponseBody
-	public Return delete(Integer id) {
+	public ResponseBean delete(Integer id) {
 		permissionService.delete(id);
-		return Return.success();
+		return ResponseBean.success();
 	}
 
 	@GetMapping("/list")

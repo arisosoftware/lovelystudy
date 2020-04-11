@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.lovelystudy.config.properties.SiteConfig;
 import com.lovelystudy.core.base.BaseController;
 import com.lovelystudy.core.bean.Page;
-import com.lovelystudy.core.bean.Return;
+import com.lovelystudy.core.bean.ResponseBean;
 import com.lovelystudy.module.comment.pojo.Comment;
 import com.lovelystudy.module.comment.pojo.CommentWithBLOBs;
 import com.lovelystudy.module.comment.service.CommentService;
@@ -37,9 +37,9 @@ public class CommentAdminController extends BaseController {
 	 
 	@GetMapping("/delete")
 	@ResponseBody
-	public Return delete(Integer id) {
+	public ResponseBean delete(Integer id) {
 		commentService.delete(id, getAdminUser().getId());
-		return Return.success();
+		return ResponseBean.success();
 	}
 
  
@@ -54,13 +54,13 @@ public class CommentAdminController extends BaseController {
 
 	@PostMapping("/edit")
 	@ResponseBody
-	public Return update(Integer id, String content) {
+	public ResponseBean update(Integer id, String content) {
 		CommentWithBLOBs comment = commentService.findById(id);
 		Assert.notNull(comment, "评论不存在");
 
 		comment.setContent(content);
 		commentService.update(comment);
-		return Return.success();
+		return ResponseBean.success();
 	}
 	
 	@GetMapping("/list")

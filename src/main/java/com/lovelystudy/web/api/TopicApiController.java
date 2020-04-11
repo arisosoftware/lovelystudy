@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.lovelystudy.core.base.BaseController;
 import com.lovelystudy.core.base.BaseEntity;
-import com.lovelystudy.core.bean.Return;
+import com.lovelystudy.core.bean.ResponseBean;
 import com.lovelystudy.core.exception.ApiAssert;
 import com.lovelystudy.core.util.EnumUtil;
 import com.lovelystudy.module.collect.service.CollectService;
@@ -48,7 +48,7 @@ public class TopicApiController extends BaseController {
 	private UserService userService;
 
 	@GetMapping("/{id}")
-	public Return detail(@PathVariable Integer id) {
+	public ResponseBean detail(@PathVariable Integer id) {
 		Map<String, Object> map = new HashMap<>();
 
 		TopicWithBLOBs topic = topicService.findById(id);
@@ -71,7 +71,7 @@ public class TopicApiController extends BaseController {
 		// 查询话题的标签
 		List<Tag> tags = tagService.findByTopicId(id);
 		map.put("tags", tags);
-		return Return.success(map);
+		return ResponseBean.success(map);
 	}
 
 	/**
@@ -83,7 +83,7 @@ public class TopicApiController extends BaseController {
 	 * @return
 	 */
 	@PostMapping("/save")
-	public Return save(String title, String content, String tag) {
+	public ResponseBean save(String title, String content, String tag) {
 		User user = getUser();
 
 		ApiAssert.notTrue(user.getBlock(), "你的帐户已经被禁用了，不能进行此项操作");
@@ -95,7 +95,7 @@ public class TopicApiController extends BaseController {
 
 		Topic topic = topicService.createTopic(title, content, tag, user);
 
-		return Return.success(topic);
+		return ResponseBean.success(topic);
 	}
 
 	/**
@@ -108,7 +108,7 @@ public class TopicApiController extends BaseController {
 	 * @return
 	 */
 	@PostMapping("/edit")
-	public Return update(Integer id, String title, String content, String tag) {
+	public ResponseBean update(Integer id, String title, String content, String tag) {
 		User user = getApiUser();
 		ApiAssert.isTrue(user.getReputation() >= ReputationPermission.EDIT_TOPIC.getReputation(), "声望太低，不能进行这项操作");
 
@@ -126,7 +126,7 @@ public class TopicApiController extends BaseController {
 
 		topic = topicService.updateTopic(oldTopic, topic, user);
 
-		return Return.success(topic);
+		return ResponseBean.success(topic);
 	}
 
 	/**
@@ -137,7 +137,7 @@ public class TopicApiController extends BaseController {
 	 * @return
 	 */
 	@GetMapping("/{id}/vote")
-	public Return vote(@PathVariable Integer id, String action) {
+	public ResponseBean vote(@PathVariable Integer id, String action) {
 		User user = getApiUser();
 
 		ApiAssert.isTrue(user.getReputation() >= ReputationPermission.VOTE_TOPIC.getReputation(), "声望太低，不能进行这项操作");
@@ -150,6 +150,6 @@ public class TopicApiController extends BaseController {
 		ApiAssert.isTrue(EnumUtil.isDefined(VoteAction.values(), action), "参数错误");
 
 		Map<String, Object> map = topicService.vote(user.getId(), topic, action);
-		return Return.success(map);
+		return ResponseBean.success(map);
 	}
 }

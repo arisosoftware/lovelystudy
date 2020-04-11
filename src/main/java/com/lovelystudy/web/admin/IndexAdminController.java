@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.lovelystudy.config.properties.SiteConfig;
 import com.lovelystudy.core.base.BaseController;
-import com.lovelystudy.core.bean.Return;
+import com.lovelystudy.core.bean.ResponseBean;
 import com.lovelystudy.core.util.CookieHelper;
  
 import com.lovelystudy.module.security.service.AdminUserService;
@@ -37,13 +37,13 @@ public class IndexAdminController extends BaseController {
 
 	@GetMapping("/clear")
 	@ResponseBody
-	public Return clear(Integer type) {
+	public ResponseBean clear(Integer type) {
 		if (type == 1) {
 			userService.deleteAllRedisUser();
 		} else if (type == 2) {
 			adminUserService.deleteAllRedisAdminUser();
 		}
-		return Return.success();
+		return ResponseBean.success();
 	}
 
 	@GetMapping("/index")
@@ -53,9 +53,9 @@ public class IndexAdminController extends BaseController {
 
 	@GetMapping("/indexedTag")
 	@ResponseBody
-	public Return indexedTag() {
+	public ResponseBean indexedTag() {
 		tagSearchService.indexedAll();
-		return Return.success();
+		return ResponseBean.success();
 	}
 
 	@GetMapping("/logout")
@@ -67,8 +67,8 @@ public class IndexAdminController extends BaseController {
 
 	@GetMapping("/indexedTopic")
 	@ResponseBody
-	public Return topicIndexed() {
-		( topicSearchService).indexedAll();
-		return Return.success();
+	public ResponseBean topicIndexed() {
+		//TODO:add index all feature topicSearchService).indexedAll();
+		return ResponseBean.success();
 	}
 }
