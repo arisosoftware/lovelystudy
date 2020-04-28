@@ -4,6 +4,10 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.ibatis.annotations.Param;
+
+/*
+ * @Author Arisosoftwaredeveloper
+ */
 @SuppressWarnings("rawtypes")
 public interface CollectMapper {
 	int countByTopicId(Integer topicId);

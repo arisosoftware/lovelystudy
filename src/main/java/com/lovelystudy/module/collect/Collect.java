@@ -1,7 +1,11 @@
 package com.lovelystudy.module.collect;
 
 import java.util.Date;
-
+/*
+ * @Author Arisosoftwaredeveloper
+ * 
+ * this is Pojo model
+ */
 public class Collect {
 	private Integer id;
 
