@@ -19,7 +19,6 @@ import com.lovelystudy.module.topic.pojo.Topic;
 import com.lovelystudy.module.topic.pojo.TopicWithBLOBs;
 import com.lovelystudy.module.topic.service.TopicService;
 
- 
 @Controller
 @RequestMapping("/admin/topic")
 public class TopicAdminController extends BaseController {

@@ -34,7 +34,6 @@ public class CommentAdminController extends BaseController {
 	@Autowired
 	private TopicService topicService;
 
-	 
 	@GetMapping("/delete")
 	@ResponseBody
 	public ResponseBean delete(Integer id) {
@@ -42,7 +41,6 @@ public class CommentAdminController extends BaseController {
 		return ResponseBean.success();
 	}
 
- 
 	@GetMapping("/edit")
 	public String edit(Integer id, Model model) {
 		Comment comment = commentService.findById(id);
@@ -62,13 +60,12 @@ public class CommentAdminController extends BaseController {
 		commentService.update(comment);
 		return ResponseBean.success();
 	}
-	
+
 	@GetMapping("/list")
 	public String list(@RequestParam(defaultValue = "1") Integer pageNo, Model model) {
 		Page<Map> page = commentService.findAllForAdmin(pageNo, siteConfig.getPageSize());
 		model.addAttribute("page", page);
 		return "admin/comment/list";
 	}
- 
 
 }

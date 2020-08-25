@@ -7,6 +7,7 @@ import org.apache.ibatis.annotations.Param;
 
 import com.lovelystudy.module.log.pojo.Log;
 import com.lovelystudy.module.log.pojo.LogWithBLOBs;
+
 @SuppressWarnings("rawtypes")
 public interface LogMapper {
 	int countAllForAdmin();

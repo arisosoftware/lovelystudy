@@ -16,13 +16,12 @@ import org.springframework.util.StringUtils;
 
 import com.google.common.collect.Lists;
 
-
 import com.lovelystudy.core.bean.Page;
 import com.lovelystudy.core.util.JsonUtil;
 import com.lovelystudy.module.collect.CollectService;
 import com.lovelystudy.module.comment.pojo.CommentWithBLOBs;
 import com.lovelystudy.module.comment.service.CommentService;
- 
+
 import com.lovelystudy.module.log.pojo.LogEventEnum;
 import com.lovelystudy.module.log.pojo.LogTargetEnum;
 import com.lovelystudy.module.log.service.LogService;
@@ -38,7 +37,6 @@ import com.lovelystudy.module.user.pojo.User;
 import com.lovelystudy.module.user.pojo.UserReputation;
 import com.lovelystudy.module.user.service.UserService;
 
-
 @SuppressWarnings("rawtypes")
 @Service
 @Transactional
@@ -52,14 +50,14 @@ public class TopicService {
 	private LogService logService;
 	@Autowired
 	private NotificationService notificationService;
-	//@Autowired
-	//private SiteConfig siteConfig;
+	// @Autowired
+	// private SiteConfig siteConfig;
 	@Autowired
 	private TagService tagService;
 	@Autowired
 	private TopicMapper topicMapper;
-	//@Autowired
-	////private TopicSearchService topicSearchService;
+	// @Autowired
+	//// private TopicSearchService topicSearchService;
 	@Autowired
 	private TopicTagService topicTagService;
 	@Autowired
@@ -89,8 +87,8 @@ public class TopicService {
 		logService.save(LogEventEnum.CREATE_TOPIC, user.getId(), LogTargetEnum.TOPIC.name(), topic.getId(), null,
 				JsonUtil.objectToJson(topic), topic);
 		// 索引话题
-		//if (siteConfig.isSearch())
-		//	topicSearchService.indexed(topic, user.getUsername());
+		// if (siteConfig.isSearch())
+		// topicSearchService.indexed(topic, user.getUsername());
 		return topic;
 	}
 
@@ -109,8 +107,8 @@ public class TopicService {
 			// 删除话题
 			topicMapper.deleteByPrimaryKey(id);
 			// 删除索引
-			//if (siteConfig.isSearch())
-			//	topicSearchService.deleteById(id);
+			// if (siteConfig.isSearch())
+			// topicSearchService.deleteById(id);
 		}
 	}
 
@@ -199,7 +197,6 @@ public class TopicService {
 		}
 	}
 
-	
 	public Page<Map> pageByTagId(Integer pageNo, Integer pageSize, Integer tagId) {
 		List<Map> list = topicMapper.findTopicsByTagId(tagId, (pageNo - 1) * pageSize, pageSize,
 				"t.weight desc, t.id desc");
@@ -226,8 +223,8 @@ public class TopicService {
 		logService.save(LogEventEnum.EDIT_TOPIC, user.getId(), LogTargetEnum.TOPIC.name(), topic.getId(),
 				JsonUtil.objectToJson(oldTopic), JsonUtil.objectToJson(topic), topic);
 		// 索引话题
-	//	if (siteConfig.isSearch())
-		//	topicSearchService.indexed(topic, user.getUsername());
+		// if (siteConfig.isSearch())
+		// topicSearchService.indexed(topic, user.getUsername());
 		return topic;
 	}
 

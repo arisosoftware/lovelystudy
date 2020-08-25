@@ -22,7 +22,6 @@ import com.lovelystudy.module.topic.service.TopicService;
 import com.lovelystudy.module.user.mapper.UserMapper;
 import com.lovelystudy.module.user.pojo.User;
 
-
 @Service
 @Transactional
 public class UserService {

@@ -1,6 +1,5 @@
 package com.lovelystudy.core.exception;
 
-
 public class ApiException extends RuntimeException {
 
 	/**

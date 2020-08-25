@@ -10,7 +10,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupp
 import com.lovelystudy.web.interceptor.CommonInterceptor;
 import com.lovelystudy.web.interceptor.PjaxInterceptor;
 import com.lovelystudy.web.interceptor.UserInterceptor;
- 
+
 @Configuration
 public class WebMvcConfig extends WebMvcConfigurationSupport {
 

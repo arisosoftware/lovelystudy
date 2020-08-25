@@ -1,5 +1,5 @@
 package com.lovelystudy.core.util;
- 
+
 @SuppressWarnings("rawtypes")
 public class EnumUtil {
 

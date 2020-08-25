@@ -71,8 +71,8 @@ public class UserApiController extends BaseController {
 			String __avatar = null;
 			if (siteConfig.getUploadType().equals("local")) {
 				__avatar = identicon.saveFile(user.getUsername(), bufferedImage);
-			}  
-			
+			}
+
 			user.setAvatar(__avatar);
 			userService.update(user);
 			bais.close();

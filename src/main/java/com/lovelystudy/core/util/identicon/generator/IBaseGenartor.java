@@ -2,7 +2,6 @@ package com.lovelystudy.core.util.identicon.generator;
 
 import java.awt.Color;
 
- 
 public interface IBaseGenartor {
 	/**
 	 * 获取图片背景色

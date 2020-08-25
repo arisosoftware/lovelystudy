@@ -59,7 +59,8 @@ public class IndexApiController extends BaseController {
 	 * @return Page对象，里面有分页信息
 	 */
 	@GetMapping("/")
-	public ResponseBean index(@RequestParam(defaultValue = "1") Integer pageNo, @RequestParam(defaultValue = "") String tab) {
+	public ResponseBean index(@RequestParam(defaultValue = "1") Integer pageNo,
+			@RequestParam(defaultValue = "") String tab) {
 		if (!StringUtils.isEmpty(tab)) {
 			ApiAssert.isTrue(EnumUtil.isDefined(TopicTab.values(), tab), "参数错误");
 		}
@@ -145,9 +146,10 @@ public class IndexApiController extends BaseController {
 	 * @return
 	 */
 	@GetMapping("/search")
- 
+
 	public ResponseBean search(String keyword, @RequestParam(defaultValue = "1") Integer pageNo) {
-		//org.springframework.data.domain.Page<TopicIndex> page = topicSearchService.query(keyword, pageNo,siteConfig.getPageSize());
+		// org.springframework.data.domain.Page<TopicIndex> page =
+		// topicSearchService.query(keyword, pageNo,siteConfig.getPageSize());
 		return ResponseBean.success();
 	}
 

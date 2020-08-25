@@ -28,7 +28,7 @@ public class SocketEventHandler {
 	private Logger logger = LoggerFactory.getLogger(SocketEventHandler.class);
 	@Autowired
 	private NotificationService notificationService;
- 
+
 	private Map<String, Object> socketMap = new HashMap<>();
 	@Autowired
 	private UserService userService;

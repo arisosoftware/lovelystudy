@@ -97,10 +97,8 @@ public class TagService {
 		tagMapper.updateByPrimaryKeySelective(tag);
 	}
 
-	 
-
 	public void indexedAll() {
 		// TODO Auto-generated method stub
-		
+
 	}
 }

@@ -8,10 +8,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.lovelystudy.config.SiteConfig;
 import com.lovelystudy.core.base.BaseController;
- 
+
 import com.lovelystudy.core.bean.ResponseBean;
- 
- 
+
 import com.lovelystudy.module.tag.service.TagService;
 
 /**
@@ -23,8 +22,8 @@ public class TagApiController extends BaseController {
 
 	@Autowired
 	private SiteConfig siteConfig;
-	//@Autowired
-	//private TagSearchService tagSearchService;
+	// @Autowired
+	// private TagSearchService tagSearchService;
 	@Autowired
 	private TagService tagService;
 
@@ -37,7 +36,7 @@ public class TagApiController extends BaseController {
 	@GetMapping("/autocomplete")
 
 	public ResponseBean autocomplete(String keyword) {
-			return ResponseBean.success();
+		return ResponseBean.success();
 	}
 
 }

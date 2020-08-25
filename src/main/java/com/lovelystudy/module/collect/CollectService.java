@@ -18,7 +18,6 @@ import com.lovelystudy.module.notification.service.NotificationService;
 import com.lovelystudy.module.topic.pojo.Topic;
 import com.lovelystudy.module.topic.service.TopicService;
 
-
 @SuppressWarnings("rawtypes")
 @Service
 @Transactional

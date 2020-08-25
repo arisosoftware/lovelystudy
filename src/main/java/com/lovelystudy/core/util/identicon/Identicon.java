@@ -25,7 +25,6 @@ import com.lovelystudy.core.util.encrypt.MD5Helper;
 import com.lovelystudy.core.util.identicon.generator.IBaseGenartor;
 import com.lovelystudy.core.util.identicon.generator.impl.MyGenerator;
 
- 
 @Component
 public class Identicon {
 
@@ -112,5 +111,4 @@ public class Identicon {
 		return "";
 	}
 
- 
 }

@@ -17,7 +17,7 @@ import com.lovelystudy.module.log.service.LogService;
 import com.lovelystudy.module.topic.service.TopicService;
 import com.lovelystudy.module.user.pojo.ReputationPermission;
 import com.lovelystudy.module.user.pojo.User;
- 
+
 @Controller
 @RequestMapping("/comment")
 public class CommentController extends BaseController {

@@ -22,7 +22,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.lovelystudy.config.SiteConfig;
 import com.lovelystudy.module.attachment.pojo.Attachment;
 import com.lovelystudy.module.attachment.service.AttachmentService;
- 
+
 @Component
 public class FileUtil {
 
@@ -98,7 +98,7 @@ public class FileUtil {
 	 * @return
 	 * @throws IOException
 	 */
-	//TODO:上传文件应该用md5来规划，而不是uuid
+	// TODO:上传文件应该用md5来规划，而不是uuid
 	public Attachment uploadFile(MultipartFile file, FileType fileType, String username) throws IOException {
 		if (file.isEmpty())
 			return null;
@@ -125,5 +125,4 @@ public class FileUtil {
 				(Integer) map.get("width"), (Integer) map.get("height"), (String) map.get("size"), suffix, md5);
 	}
 
-	
 }

@@ -15,7 +15,7 @@ import com.lovelystudy.config.SiteConfig;
 import com.lovelystudy.core.base.BaseController;
 import com.lovelystudy.core.util.CookieHelper;
 import com.lovelystudy.module.tag.service.TagService;
- 
+
 @Controller
 public class IndexController extends BaseController {
 
@@ -23,7 +23,7 @@ public class IndexController extends BaseController {
 	private SiteConfig siteConfig;
 	@Autowired
 	private TagService tagService;
- 
+
 	/**
 	 * 后台登录
 	 *
@@ -67,9 +67,10 @@ public class IndexController extends BaseController {
 	@GetMapping("/search")
 	public String search(String keyword, @RequestParam(defaultValue = "1") Integer pageNo, Model model) {
 		Assert.notNull(keyword, "请输入关键词");
-	//	Page<TopicIndex> page = topicSearchService.query(keyword, pageNo, siteConfig.getPageSize());
-		//model.addAttribute("page", page);
-		//model.addAttribute("keyword", keyword);
+		// Page<TopicIndex> page = topicSearchService.query(keyword, pageNo,
+		// siteConfig.getPageSize());
+		// model.addAttribute("page", page);
+		// model.addAttribute("keyword", keyword);
 		return "front/search";
 	}
 

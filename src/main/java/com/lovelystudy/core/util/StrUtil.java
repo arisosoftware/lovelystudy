@@ -11,7 +11,6 @@ import java.util.regex.Pattern;
 
 import org.springframework.util.StringUtils;
 
-
 public class StrUtil {
 
 	public static final String check = "^([a-z0-9A-Z]+[-|_|\\.]?)+[a-z0-9A-Z]@([a-z0-9A-Z]+(-[a-z0-9A-Z]+)?\\.)+[a-zA-Z]{2,}$";

@@ -25,7 +25,7 @@ import com.lovelystudy.module.topic.service.TopicService;
 import com.lovelystudy.module.user.pojo.ReputationPermission;
 import com.lovelystudy.module.user.pojo.User;
 import com.lovelystudy.module.user.service.UserService;
- 
+
 @Controller
 @RequestMapping("/topic")
 public class TopicController extends BaseController {

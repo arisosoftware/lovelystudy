@@ -87,7 +87,7 @@ public class CommonApiController extends BaseController {
 				if (attachment == null) {
 					if (siteConfig.getUploadType().equals("local")) {
 						attachment = fileUtil.uploadFile(file, FileType.PICTURE, username);
-					}  
+					}
 				}
 				map.put("errno", 0);
 				map.put("data", Arrays.asList(attachment.getRequestUrl()));

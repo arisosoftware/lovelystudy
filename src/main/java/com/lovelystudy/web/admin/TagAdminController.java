@@ -86,7 +86,7 @@ public class TagAdminController extends BaseController {
 		try {
 			if (siteConfig.getUploadType().equals("local")) {
 				attachment = fileUtil.uploadFile(file, FileType.PICTURE, "admin_tag");
-			} 
+			}
 			Tag tag = tagService.findById(id);
 			tag.setIntro(intro);
 			tag.setLogo(attachment != null ? attachment.getRequestUrl() : null);

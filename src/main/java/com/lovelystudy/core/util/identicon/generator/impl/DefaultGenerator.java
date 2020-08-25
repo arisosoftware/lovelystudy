@@ -10,7 +10,6 @@ import com.google.common.base.Preconditions;
 import com.google.common.math.DoubleMath;
 import com.lovelystudy.core.util.identicon.generator.IBaseGenartor;
 
- 
 public class DefaultGenerator implements IBaseGenartor {
 	private boolean[][] booleanValueArray;
 	private Random random = new Random();

@@ -16,7 +16,6 @@ import com.lovelystudy.core.base.BaseEntity;
 import com.lovelystudy.core.util.IpUtil;
 import com.lovelystudy.module.user.pojo.User;
 
- 
 @Component
 public class CommonInterceptor implements HandlerInterceptor {
 

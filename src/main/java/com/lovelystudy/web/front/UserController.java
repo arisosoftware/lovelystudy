@@ -20,7 +20,7 @@ import com.lovelystudy.core.util.encrypt.Base64Helper;
 import com.lovelystudy.module.log.service.LogService;
 import com.lovelystudy.module.user.pojo.User;
 import com.lovelystudy.module.user.service.UserService;
- 
+
 @Controller
 @RequestMapping("/user")
 public class UserController extends BaseController {

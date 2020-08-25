@@ -11,10 +11,9 @@ import org.springframework.web.servlet.ModelAndView;
 import com.lovelystudy.core.bean.ResponseBean;
 import com.lovelystudy.core.exception.ApiException;
 
- 
 @ControllerAdvice
 public class GlobalExceptionHandler {
- 
+
 	@ExceptionHandler(value = Exception.class)
 	public ModelAndView defaultErrorHandler(HttpServletRequest request, Exception e) throws Exception {
 		e.printStackTrace();
@@ -33,7 +32,6 @@ public class GlobalExceptionHandler {
 		return HttpStatus.valueOf(statusCode);
 	}
 
-	 
 	@ExceptionHandler(value = ApiException.class)
 	@ResponseBody
 	public ResponseBean jsonErrorHandler(ApiException e) throws Exception {

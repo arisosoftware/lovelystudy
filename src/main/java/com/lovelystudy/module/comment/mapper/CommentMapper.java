@@ -7,6 +7,7 @@ import org.apache.ibatis.annotations.Param;
 
 import com.lovelystudy.module.comment.pojo.Comment;
 import com.lovelystudy.module.comment.pojo.CommentWithBLOBs;
+
 @SuppressWarnings("rawtypes")
 public interface CommentMapper {
 	int countAllForAdmin();

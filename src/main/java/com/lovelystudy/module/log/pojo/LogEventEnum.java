@@ -1,5 +1,5 @@
 package com.lovelystudy.module.log.pojo;
- 
+
 public enum LogEventEnum {
 
 	COLLECT_TOPIC("收藏话题", "collectTopic"), COMMENT_TOPIC("评论主题", "commentTopic"), CREATE_TOPIC("发布主题", "createTopic"),

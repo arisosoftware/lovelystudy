@@ -7,6 +7,7 @@ import org.apache.ibatis.annotations.Param;
 
 import com.lovelystudy.module.topic.pojo.Topic;
 import com.lovelystudy.module.topic.pojo.TopicWithBLOBs;
+
 @SuppressWarnings("rawtypes")
 public interface TopicMapper {
 	int countTopic(@Param("userId") Integer userId, @Param("good") Boolean good, @Param("top") Boolean top,
@@ -29,7 +30,6 @@ public interface TopicMapper {
 			@Param("endTime") String endTime, @Param("pageNo") Integer pageNo, @Param("pageSize") Integer pageSize,
 			@Param("orderBy") String orderBy);
 
-	
 	List<Map> findTopicsByTagId(@Param("tagId") Integer tagId, @Param("pageNo") Integer pageNo,
 			@Param("pageSize") Integer pageSize, @Param("orderBy") String orderBy);
 

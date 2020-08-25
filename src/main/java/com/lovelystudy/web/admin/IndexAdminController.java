@@ -14,12 +14,12 @@ import com.lovelystudy.config.SiteConfig;
 import com.lovelystudy.core.base.BaseController;
 import com.lovelystudy.core.bean.ResponseBean;
 import com.lovelystudy.core.util.CookieHelper;
- 
+
 import com.lovelystudy.module.security.service.AdminUserService;
 import com.lovelystudy.module.tag.service.TagService;
 import com.lovelystudy.module.topic.service.TopicService;
 import com.lovelystudy.module.user.service.UserService;
- 
+
 @Controller
 @RequestMapping("/admin")
 public class IndexAdminController extends BaseController {
@@ -68,7 +68,7 @@ public class IndexAdminController extends BaseController {
 	@GetMapping("/indexedTopic")
 	@ResponseBody
 	public ResponseBean topicIndexed() {
-		//TODO:add index all feature topicSearchService).indexedAll();
+		// TODO:add index all feature topicSearchService).indexedAll();
 		return ResponseBean.success();
 	}
 }

@@ -1,5 +1,5 @@
 package com.lovelystudy.core.bean;
- 
+
 public class ResponseBean {
 
 	public static ResponseBean error() {

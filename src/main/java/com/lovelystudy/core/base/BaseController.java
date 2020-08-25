@@ -7,7 +7,6 @@ import com.lovelystudy.core.exception.ApiAssert;
 import com.lovelystudy.module.security.pojo.AdminUser;
 import com.lovelystudy.module.user.pojo.User;
 
- 
 public class BaseController {
 
 	@Autowired
@@ -19,19 +18,16 @@ public class BaseController {
 		return baseEntity.getAdminUser();
 	}
 
-	 
 	protected User getApiUser() {
 		User user = baseEntity.getUser();
 		ApiAssert.notNull(user, "请先登录");
 		return user;
 	}
 
-	 
 	protected User getUser() {
 		return baseEntity.getUser();
 	}
 
-	 
 	protected String redirect(String path) {
 		String baseUrl = siteConfig.getBaseUrl();
 		baseUrl = baseUrl.substring(0, baseUrl.length() - 1);

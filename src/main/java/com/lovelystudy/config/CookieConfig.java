@@ -1,6 +1,5 @@
 package com.lovelystudy.config;
 
- 
 public class CookieConfig {
 
 	private Integer adminUserMaxAge;

@@ -1,6 +1,5 @@
 package com.lovelystudy.config;
 
-
 public class SocketConfig {
 
 	private String hostname;

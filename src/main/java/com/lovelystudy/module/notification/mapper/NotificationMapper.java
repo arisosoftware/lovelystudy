@@ -6,6 +6,7 @@ import java.util.Map;
 import org.apache.ibatis.annotations.Param;
 
 import com.lovelystudy.module.notification.pojo.Notification;
+
 @SuppressWarnings("rawtypes")
 public interface NotificationMapper {
 	int countByTargetUserId(@Param("targetUserId") Integer targetUserId, @Param("isRead") Boolean isRead);

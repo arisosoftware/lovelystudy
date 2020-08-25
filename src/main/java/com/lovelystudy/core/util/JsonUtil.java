@@ -1,7 +1,7 @@
 package com.lovelystudy.core.util;
 
 import com.google.gson.Gson;
- 
+
 public class JsonUtil {
 
 	public final static Gson gson = new Gson();

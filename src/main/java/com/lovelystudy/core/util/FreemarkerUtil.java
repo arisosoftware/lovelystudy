@@ -16,7 +16,7 @@ import com.lovelystudy.core.util.freemarker.StringTemplateLoader;
 import freemarker.template.Configuration;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
- 
+
 @Component
 public class FreemarkerUtil {
 

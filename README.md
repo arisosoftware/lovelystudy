@@ -12,3 +12,6 @@ CREATE DATABASE IF NOT EXISTS LovelyStudy DEFAULT CHARSET utf8 COLLATE utf8_gene
 
 ## fix elastic error 
 https://discuss.elastic.co/t/elasticsearch-5-4-1-availableprocessors-is-already-set/88036/8
+
+
+sudo usermod -a -G group username

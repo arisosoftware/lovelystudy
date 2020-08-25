@@ -15,7 +15,7 @@ public class StringTemplateLoader implements TemplateLoader {
 
 	public StringTemplateLoader(String defaultTemplate) {
 		if (defaultTemplate != null && !defaultTemplate.equals("")) {
-			 templates.put(DEFAULT_TEMPLATE_KEY, defaultTemplate);
+			templates.put(DEFAULT_TEMPLATE_KEY, defaultTemplate);
 		}
 	}
 

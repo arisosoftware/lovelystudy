@@ -5,7 +5,6 @@ import java.util.Random;
 
 import com.lovelystudy.core.util.identicon.generator.IBaseGenartor;
 
- 
 public class MyGenerator implements IBaseGenartor {
 
 	private Random random = new Random();

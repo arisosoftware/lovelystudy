@@ -14,7 +14,6 @@ import com.lovelystudy.module.topic.pojo.TopicWithBLOBs;
 import com.lovelystudy.module.topic.service.TopicService;
 import com.lovelystudy.module.user.pojo.User;
 
- 
 @RestController
 @RequestMapping("/api/collect")
 public class CollectApiController extends BaseController {

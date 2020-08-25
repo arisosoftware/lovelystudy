@@ -24,7 +24,6 @@ import com.lovelystudy.module.security.pojo.Role;
 import com.lovelystudy.module.security.service.AdminUserService;
 import com.lovelystudy.module.security.service.RoleService;
 
-
 @Controller
 @RequestMapping("/admin/admin_user")
 public class AdminUserController extends BaseController {

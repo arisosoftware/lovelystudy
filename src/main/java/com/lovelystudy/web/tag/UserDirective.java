@@ -17,6 +17,7 @@ import freemarker.template.TemplateDirectiveBody;
 import freemarker.template.TemplateDirectiveModel;
 import freemarker.template.TemplateException;
 import freemarker.template.TemplateModel;
+
 @SuppressWarnings("rawtypes")
 @Component
 public class UserDirective extends BaseController implements TemplateDirectiveModel {

@@ -3,7 +3,6 @@ package com.lovelystudy.config;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 
-
 @Configuration
 @ConfigurationProperties(prefix = "site")
 public class SiteConfig {
@@ -93,7 +92,6 @@ public class SiteConfig {
 	public String getTheme() {
 		return theme;
 	}
-
 
 	public String getUploadPath() {
 		return uploadPath;
